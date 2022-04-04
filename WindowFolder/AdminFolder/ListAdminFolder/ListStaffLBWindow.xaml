@@ -1,0 +1,82 @@
+﻿<Window x:Class="EF041ISP.WindowFolder.AdminFolder.ListAdminFolder.ListStaffLBWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EF041ISP.WindowFolder.AdminFolder.ListAdminFolder"
+        mc:Ignorable="d"
+        Title="Список сотрудников" Height="600"
+        Width="1000" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="68"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="68"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Label Content="Список сотрудников" Grid.Row="1" Grid.Column="2"
+               Style="{DynamicResource LabelLogoStyle}"/>
+        <Image Style="{DynamicResource ImageLogoStyle}" 
+               Grid.Column="1"
+               Grid.Row="1" />
+        <Label Content="Поиск" 
+               Style="{DynamicResource LabelStyle}" 
+               Grid.Column="1" Grid.Row="3"/>
+        <TextBox x:Name="TbSearch" Grid.Row="3" 
+                 Grid.Column="2" 
+                 TextChanged="TbSearch_TextChanged"/>
+        <ListBox x:Name="LbStaff" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1" SelectionMode="Single" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="800">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock>
+                            <Run Text="Фамилия:" FontWeight="Bold"/>
+                            <Run Text="{Binding LastNameStaffs}"/>
+                        </TextBlock>
+                        <TextBlock Grid.Row="1">
+                            <Run Text="имя:" FontWeight="Bold"/>
+                            <Run Text="{Binding FirstNameStaffs}"/>
+                        </TextBlock>
+                        <TextBlock Grid.Row="2">
+                            <Run Text="Отчество:" FontWeight="Bold"/>
+                            <Run Text="{Binding MiddleNameStaffs}"/>
+                        </TextBlock>
+                        <TextBlock Grid.Row="3">
+                            <Run Text="Дата Рождения:" FontWeight="Bold"/>
+                            <Run Text="{Binding DateOfBirthStaffs, StringFormat=d}"/>
+                        </TextBlock>
+                        <TextBlock Grid.Column="1">
+                            <Run Text="Эл.Почта:" FontWeight="Bold"/>
+                            <Run Text="{Binding EmailStaffs}"/>
+                        </TextBlock>
+                        <TextBlock Grid.Column="2">
+                            <Run Text="Номер телефона:" FontWeight="Bold"/>
+                            <Run Text="{Binding NumberPhoneStaffs}"/>
+                        </TextBlock>
+                    </Grid>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>
