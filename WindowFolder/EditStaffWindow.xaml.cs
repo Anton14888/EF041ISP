@@ -18,6 +18,7 @@ namespace EF041ISP.WindowFolder
     /// <summary>
     /// Логика взаимодействия для EditStaffWindow.xaml
     /// </summary>
+    /// Ntcn
     public partial class EditStaffWindow : Window
     {
         Staffs staffs = new Staffs();
